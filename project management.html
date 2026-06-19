@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project Management Tool</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:20px;
+}
+
+h1{
+text-align:center;
+color:#333;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+background:#2575fc;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#6a11cb;
+}
+
+.project{
+border:1px solid #ddd;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+}
+
+.completed{
+color:green;
+font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Project Management Tool</h1>
+
+<input type="text" id="projectName" placeholder="Project Name">
+
+<input type="text" id="taskName" placeholder="Task Name">
+
+<input type="text" id="assignedTo" placeholder="Assigned To">
+
+<input type="date" id="deadline">
+
+<button onclick="addProject()">Add Task</button>
+
+<div id="projects"></div>
+
+</div>
+
+<script>
+
+let projects=[];
+
+function addProject(){
+
+let projectName=document.getElementById("projectName").value;
+let taskName=document.getElementById("taskName").value;
+let assignedTo=document.getElementById("assignedTo").value;
+let deadline=document.getElementById("deadline").value;
+
+if(projectName==="" || taskName===""){
+alert("Please fill all fields");
+return;
+}
+
+projects.push({
+projectName,
+taskName,
+assignedTo,
+deadline,
+completed:false
+});
+
+displayProjects();
+
+document.getElementById("projectName").value="";
+document.getElementById("taskName").value="";
+document.getElementById("assignedTo").value="";
+document.getElementById("deadline").value="";
+}
+
+function displayProjects(){
+
+let output="";
+
+projects.forEach((project,index)=>{
+
+output+=`
+<div class="project">
+<h3>${project.projectName}</h3>
+
+<p><b>Task:</b> ${project.taskName}</p>
+
+<p><b>Assigned To:</b> ${project.assignedTo}</p>
+
+<p><b>Deadline:</b> ${project.deadline}</p>
+
+<p class="${project.completed ? 'completed':''}">
+${project.completed ? 'Completed' : 'Pending'}
+</p>
+
+<button onclick="markComplete(${index})">
+Mark Complete
+</button>
+
+<button onclick="deleteTask(${index})">
+Delete
+</button>
+
+</div>
+`;
+});
+
+document.getElementById("projects").innerHTML=output;
+}
+
+function markComplete(index){
+projects[index].completed=true;
+displayProjects();
+}
+
+function deleteTask(index){
+projects.splice(index,1);
+displayProjects();
+}
+
+</script>
+
+</body>
+</html>
