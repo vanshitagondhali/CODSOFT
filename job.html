@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Board</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fc;
+}
+
+header{
+background:linear-gradient(135deg,#4e54c8,#8f94fb);
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.search-box{
+text-align:center;
+margin:20px;
+}
+
+.search-box input{
+padding:12px;
+width:60%;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.job-card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.job-card:hover{
+transform:translateY(-5px);
+}
+
+.job-card h3{
+color:#4e54c8;
+margin-bottom:10px;
+}
+
+.job-card p{
+margin:8px 0;
+}
+
+.btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 20px;
+background:#4e54c8;
+color:white;
+text-decoration:none;
+border-radius:8px;
+cursor:pointer;
+border:none;
+}
+
+.btn:hover{
+background:#3439a5;
+}
+
+.form-section{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-section input,
+.form-section textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Job Board Portal</h1>
+<p>Find Your Dream Job</p>
+</header>
+
+<div class="search-box">
+<input type="text" id="search" placeholder="Search jobs..." onkeyup="searchJobs()">
+</div>
+
+<div class="container" id="jobs">
+
+<div class="job-card">
+<h3>Web Developer</h3>
+<p><b>Company:</b> Tech Solutions</p>
+<p><b>Location:</b> Mumbai</p>
+<p><b>Salary:</b> ₹25,000/month</p>
+<button class="btn" onclick="applyJob('Web Developer')">Apply</button>
+</div>
+
+<div class="job-card">
+<h3>Digital Marketing Intern</h3>
+<p><b>Company:</b> Growth Hub</p>
+<p><b>Location:</b> Pune</p>
+<p><b>Salary:</b> ₹15,000/month</p>
+<button class="btn" onclick="applyJob('Digital Marketing Intern')">Apply</button>
+</div>
+
+<div class="job-card">
+<h3>UI/UX Designer</h3>
+<p><b>Company:</b> Creative Studio</p>
+<p><b>Location:</b> Remote</p>
+<p><b>Salary:</b> ₹20,000/month</p>
+<button class="btn" onclick="applyJob('UI/UX Designer')">Apply</button>
+</div>
+
+</div>
+
+<div class="form-section">
+<h2>Apply For Job</h2>
+
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Email Address">
+
+<input type="file">
+
+<textarea rows="4" placeholder="Why should we hire you?"></textarea>
+
+<button class="btn" onclick="submitForm()">Submit Application</button>
+
+</div>
+
+<footer>
+© 2026 Job Board Portal | CodSoft Project
+</footer>
+
+<script>
+
+function searchJobs(){
+let input=document.getElementById("search").value.toLowerCase();
+let cards=document.getElementsByClassName("job-card");
+
+for(let i=0;i<cards.length;i++){
+let text=cards[i].innerText.toLowerCase();
+
+if(text.includes(input)){
+cards[i].style.display="block";
+}
+else{
+cards[i].style.display="none";
+}
+}
+}
+
+function applyJob(jobName){
+alert("You selected: " + jobName);
+
+document.querySelector(".form-section").scrollIntoView({
+behavior:"smooth"
+});
+}
+
+function submitForm(){
+
+let name=document.querySelector('input[type="text"]').value;
+let email=document.querySelector('input[type="email"]').value;
+
+if(name==="" || email===""){
+alert("Please fill Name and Email");
+return;
+}
+
+alert("Application Submitted Successfully!");
+}
+
+</script>
+
+</body>
+</html>
+
