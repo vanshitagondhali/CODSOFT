@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dream Travel</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f4f4f4;
+}
+
+header{
+background:linear-gradient(135deg,#6a11cb,#2575fc);
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:10px;
+}
+
+.hero{
+height:80vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#6a11cb,#2575fc);
+color:white;
+}
+
+.hero h1{
+font-size:60px;
+}
+
+.hero p{
+font-size:20px;
+margin-top:10px;
+}
+
+.btn{
+padding:12px 25px;
+background:#ff6b6b;
+color:white;
+text-decoration:none;
+border-radius:25px;
+margin-top:20px;
+cursor:pointer;
+border:none;
+}
+
+section{
+padding:50px;
+text-align:center;
+}
+
+.card{
+background:white;
+padding:20px;
+margin:15px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+footer{
+background:#222;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Dream Travel</h2>
+
+<nav>
+<a href="#" onclick="showPage('Home')">Home</a>
+<a href="#" onclick="showPage('About')">About</a>
+<a href="#" onclick="showPage('Services')">Services</a>
+<a href="#" onclick="showPage('Contact')">Contact</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Explore The World</h1>
+<p>Your Journey Starts Here</p>
+<button class="btn" onclick="getStarted()">Get Started</button>
+</div>
+
+<section>
+<h2>Our Services</h2>
+
+<div class="card">
+<h3>Tour Packages</h3>
+<p>Affordable travel packages for everyone.</p>
+<button class="btn" onclick="bookService('Tour Package')">Book Now</button>
+</div>
+
+<div class="card">
+<h3>Hotel Booking</h3>
+<p>Book the best hotels at great prices.</p>
+<button class="btn" onclick="bookService('Hotel Booking')">Book Now</button>
+</div>
+
+<div class="card">
+<h3>Flight Booking</h3>
+<p>Easy and fast flight reservations.</p>
+<button class="btn" onclick="bookService('Flight Booking')">Book Now</button>
+</div>
+
+</section>
+
+<footer>
+© 2026 Dream Travel
+</footer>
+
+<script>
+
+function getStarted(){
+alert("Welcome to Dream Travel!");
+}
+
+function bookService(service){
+alert(service + " selected successfully!");
+}
+
+function showPage(page){
+alert(page + " page clicked!");
+}
+
+</script>
+
+</body>
+</html>
+```
