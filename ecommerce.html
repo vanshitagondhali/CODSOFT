@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vanshita Store</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f4f4;
+}
+
+header{
+background:#6a11cb;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+.products{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+padding:20px;
+}
+
+.card{
+background:white;
+width:250px;
+margin:15px;
+padding:15px;
+border-radius:15px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+button{
+background:#2575fc;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#6a11cb;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Vanshita Store</h2>
+<h3>🛒 Cart: <span id="cart">0</span></h3>
+</header>
+
+<div class="products">
+
+<div class="card">
+<h3>Smart Watch</h3>
+<p>₹1999</p>
+<button onclick="addCart()">Add To Cart</button>
+</div>
+
+<div class="card">
+<h3>Headphones</h3>
+<p>₹1499</p>
+<button onclick="addCart()">Add To Cart</button>
+</div>
+
+<div class="card">
+<h3>Shoes</h3>
+<p>₹2499</p>
+<button onclick="addCart()">Add To Cart</button>
+</div>
+
+</div>
+
+<center>
+<button onclick="checkout()">Proceed To Checkout</button>
+</center>
+
+<script>
+
+let count=0;
+
+function addCart(){
+count++;
+document.getElementById("cart").innerText=count;
+}
+
+function checkout(){
+
+if(count==0){
+alert("Your cart is empty!");
+}
+else{
+alert("Proceeding to checkout. Total items: " + count);
+}
+
+}
+
+</script>
+
+</body>
+</html>
+
